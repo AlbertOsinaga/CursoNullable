@@ -5,13 +5,21 @@ namespace Nullable
     class Cliente
     {
         public string Nombre;
-        public int NroCliente = 0;
-        public MiNullable<int> NroCompras;
-        public MiNullable<decimal> MontoCompras;
-        public MiNullable<DateTime> PrimeraCompra;
-        public MiNullable<DateTime> UltimaCompra;
+        public int NroCliente;
+        public Nullable<int> NroCompras;
+        public Nullable<decimal> MontoCompras;
+        public Nullable<DateTime> PrimeraCompra;
+        public Nullable<DateTime> UltimaCompra;
 
-        public Cliente() => Nombre = null;
+        public Cliente()
+        {
+            Nombre = null;
+            NroCliente = 0;
+            NroCompras = null;
+            MontoCompras = null;
+            PrimeraCompra = null;
+            UltimaCompra = null;
+        }
 
         public override string ToString() =>
             "\nCliente: " + (Nombre != null ? Nombre : "Sin nombre") +
