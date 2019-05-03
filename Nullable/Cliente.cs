@@ -19,11 +19,15 @@ namespace Nullable
             UltimaCompra = DateTime.MinValue;
         }
 
-
-        public override string ToString() => $"\nCliente: {Nombre}" +
-                                            $"\nNro de Compras: {NroCompras}" +
-                                            $"\nMontoCompras: {MontoCompras}" +
-                                            $"\nPrimeraCompra: {PrimeraCompra}" +
-                                            $"\nUltimaCompra: {UltimaCompra}";
+        public override string ToString() =>
+            "\nCliente: " + (Nombre != null ? Nombre : "Sin nombre") +
+            "\nNro de Compras: " + (NroCompras != int.MaxValue ? NroCompras.ToString() 
+                                                                : "Sin compras") +
+            "\nMonto de Compras: " + (MontoCompras != decimal.MaxValue ? "$" + MontoCompras.ToString() 
+                                                                : "Sin compras") +
+            "\nPrimera Compra: " + (PrimeraCompra != DateTime.MinValue ? PrimeraCompra.ToString() 
+                                                                : "No hay fecha de primera compra") +
+            "\nUltima Compra: " + (UltimaCompra != DateTime.MinValue ? UltimaCompra.ToString() 
+                                                                : "No hay fecha de última compra");
     }
 }
