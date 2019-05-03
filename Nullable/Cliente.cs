@@ -5,29 +5,24 @@ namespace Nullable
     class Cliente
     {
         public string Nombre;
-        public int NroCompras;
-        public decimal MontoCompras;
-        public DateTime PrimeraCompra;
-        public DateTime UltimaCompra;
+        public int NroCliente = 0;
+        public MiNullable<int> NroCompras;
+        public MiNullable<decimal> MontoCompras;
+        public MiNullable<DateTime> PrimeraCompra;
+        public MiNullable<DateTime> UltimaCompra;
 
-        public Cliente()
-        {
-            Nombre = null;
-            NroCompras = int.MaxValue;
-            MontoCompras = decimal.MaxValue;
-            PrimeraCompra = DateTime.MinValue;
-            UltimaCompra = DateTime.MinValue;
-        }
+        public Cliente() => Nombre = null;
 
         public override string ToString() =>
             "\nCliente: " + (Nombre != null ? Nombre : "Sin nombre") +
-            "\nNro de Compras: " + (NroCompras != int.MaxValue ? NroCompras.ToString() 
-                                                                : "Sin compras") +
-            "\nMonto de Compras: " + (MontoCompras != decimal.MaxValue ? "$" + MontoCompras.ToString() 
-                                                                : "Sin compras") +
-            "\nPrimera Compra: " + (PrimeraCompra != DateTime.MinValue ? PrimeraCompra.ToString() 
-                                                                : "No hay fecha de primera compra") +
-            "\nUltima Compra: " + (UltimaCompra != DateTime.MinValue ? UltimaCompra.ToString() 
-                                                                : "No hay fecha de última compra");
+            $"\nNro Cliente: {NroCliente}" + 
+            "\nNro de Compras: " + (NroCompras.HasValue ? NroCompras.Value.ToString() 
+                                                        : "Sin compras") +
+            "\nMonto de Compras: " + (MontoCompras.HasValue ? "$" + MontoCompras.Value.ToString() 
+                                                            : "Sin compras") +
+            "\nPrimera Compra: " + (PrimeraCompra.HasValue ? PrimeraCompra.Value.ToString() 
+                                                           : "No hay fecha de primera compra") +
+            "\nUltima Compra: " + (UltimaCompra.HasValue ? UltimaCompra.Value.ToString() 
+                                                           : "No hay fecha de última compra");
     }
 }
