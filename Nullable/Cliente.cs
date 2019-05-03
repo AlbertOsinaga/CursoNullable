@@ -6,10 +6,10 @@ namespace Nullable
     {
         public string Nombre;
         public int NroCliente;
-        public Nullable<int> NroCompras;
-        public Nullable<decimal> MontoCompras;
-        public Nullable<DateTime> PrimeraCompra;
-        public Nullable<DateTime> UltimaCompra;
+        public int? NroCompras;             // int? = Nullable<int>
+        public decimal? MontoCompras;       // decimal? = Nullable<decimal>
+        public DateTime? PrimeraCompra;     // DateTime? = Nullable<DateTime>
+        public DateTime? UltimaCompra;
 
         public Cliente()
         {
