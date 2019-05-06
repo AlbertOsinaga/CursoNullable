@@ -15,7 +15,7 @@ namespace Nullable
         {
             Nombre = null;
             NroCliente = 0;
-            NroCompras = null;
+            NroCompras = new int?();
             MontoCompras = null;
             PrimeraCompra = null;
             UltimaCompra = null;
@@ -26,7 +26,7 @@ namespace Nullable
             $"\nNro Cliente: {NroCliente}" + 
             "\nNro de Compras: " + (NroCompras.HasValue ? NroCompras.Value.ToString() 
                                                         : "Sin compras") +
-            "\nMonto de Compras: " + (MontoCompras.HasValue ? "$" + MontoCompras.Value.ToString() 
+            "\nMonto de Compras: " + (MontoCompras != null ? "$" + MontoCompras.Value.ToString() 
                                                             : "Sin compras") +
             "\nPrimera Compra: " + (PrimeraCompra.HasValue ? PrimeraCompra.Value.ToString() 
                                                            : "No hay fecha de primera compra") +
