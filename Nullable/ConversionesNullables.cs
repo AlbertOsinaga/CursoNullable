@@ -43,11 +43,31 @@ namespace Nullable
             WriteLine("Nullable<S> a T");
             WriteLine("Nullable<int> a decimal");
             WriteDecimal((decimal)nint);
+
+            // El operador 'as'
+            WriteLine("--------------------------------------");
+            WriteLine("El operador 'as'");
+            WriteObjAsInt(9);
+            try
+            {
+                WriteObjAsInt("número");
+            }
+            catch (InvalidOperationException)
+            {
+                WriteLine("InvalidOperationException atrapada!");
+            }
         }
 
+        static void WriteDateTimeNulo(DateTime? dt) => WriteLine($"DateTime nulo = {dt}");
         static void WriteDecimal(decimal d) => WriteLine($"decimal = {d}");
         static void WriteDecNulo(decimal? d) => WriteLine($"decimal? = {d}");
         static void WriteInt(int n) => WriteLine($"int = {n}");
         static void WriteIntNulo(int? n) => WriteLine($"int? = {n}");
+        static void WriteObjAsInt(object o)
+        {
+            int? nint = o as int?;
+            WriteLine($"(o as int?) nint.Value = {nint.Value}");
+            //WriteLine(nint != null? nint.Value.ToString() : "null");
+        }
     }
 }
