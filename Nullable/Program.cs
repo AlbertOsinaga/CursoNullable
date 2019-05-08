@@ -7,6 +7,7 @@ namespace Nullable
     {
         static void Main(string[] args)
         {
+            OperadoresEspeciales.Run();
             //Cliente cliente = new Cliente()
             //{
             //    Nombre = "Juan Lopez",
@@ -24,7 +25,7 @@ namespace Nullable
             //int nroCompras = (int) cliente.NroCompras;
             //WriteLine($"\nnro de compras del cliente:\n {nroCompras}");
             //LiftedOperadores.Run();
-            ConversionesNullables.Run();
+            //ConversionesNullables.Run();
         }
     }
 }
